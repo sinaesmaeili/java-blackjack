@@ -1,8 +1,8 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Deck {
 
@@ -11,16 +11,20 @@ public class Deck {
     private List<Card> deck = new ArrayList<Card>();
 
     public Deck() {
-        generateDeck();
+        this.generateDeck();
+        this.shuffle();
     }
 
     public Card takeCard() {
-        Random rand = new Random();
-        return deck.remove(rand.nextInt(deck.size()));
+        return deck.remove(0);
     }
 
     public int getDeckSize() {
         return deck.size();
+    }
+
+    public void shuffle() {
+        Collections.shuffle(deck);
     }
 
     private void generateDeck() {
