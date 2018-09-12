@@ -6,17 +6,18 @@ public class GameTest extends TestCase {
 
     public void testDeckCreationWhenConsoleGame() {
         Game game = new Game();
+        game.playConsole();
 
         assertNotNull(game.gameDeck);
     }
 
-    public void playerHasTwoCardsAtStart() {
+    public void testPlayerHasTwoCardsAtStart() {
         Game game = new Game();
 
         assertEquals(2, game.getPlayerHand().size());
     }
 
-    public void dealerHasTwoCardsAtStart() {
+    public void testDealerHasTwoCardsAtStart() {
         Game game = new Game();
 
         assertEquals(2, game.getDealerHand().size());
@@ -65,6 +66,28 @@ public class GameTest extends TestCase {
         game.checkWin();
 
         assertEquals(game.Players.USER, game.getWinner);
+    }
+
+    public void testCountAcePlayer() {
+        Game game = new Game();
+        Card card = new Card("S", "A");
+        game.addToPlayerHand(card);
+        game.addToPlayerHand(card);
+        game.playerTotal += card.getCardValue() + card.getCardValue();
+        game.countAcePlayer();
+
+        assertEquals(12, game.playerTotal);
+    }
+
+    public void testCountAceDealer() {
+        Game game = new Game();
+        Card card = new Card("S", "A");
+        game.addToDealerHand(card);
+        game.addToDealerHand(card);
+        game.dealerTotal += card.getCardValue() + card.getCardValue();
+        game.countAceDealer();
+
+        assertEquals(12, game.dealerTotal);
     }
 
     public void testConsoleGameLoop() {
