@@ -29,7 +29,7 @@ public class GameTest extends TestCase {
         game.setDealerTotal(21);
         game.checkWin();
 
-        assertEquals(game.Players.DEALER, game.getWinner);
+        assertEquals(Game.Players.DEALER, game.getWinner());
     }
 
     public void testCheckWinnerWhenDealer21() {
@@ -38,7 +38,7 @@ public class GameTest extends TestCase {
         game.setDealerTotal(21);
         game.checkWin();
 
-        assertEquals(game.Players.DEALER, game.getWinner);
+        assertEquals(Game.Players.DEALER, game.getWinner());
     }
 
     public void testCheckWinnerWhenPlayer21() {
@@ -47,7 +47,7 @@ public class GameTest extends TestCase {
         game.setDealerTotal(20);
         game.checkWin();
 
-        assertEquals(game.Players.USER, game.getWinner);
+        assertEquals(Game.Players.USER, game.getWinner());
     }
 
     public void testCheckWinnerWhenDealerGreaterThanPlayer() {
@@ -56,7 +56,7 @@ public class GameTest extends TestCase {
         game.setDealerTotal(10);
         game.checkWin();
 
-        assertEquals(game.Players.DEALER, game.getWinner);
+        assertEquals(Game.Players.DEALER, game.getWinner());
     }
 
     public void testCheckWinnerWhenPlayerGreaterThanDealer() {
@@ -65,7 +65,7 @@ public class GameTest extends TestCase {
         game.setDealerTotal(10);
         game.checkWin();
 
-        assertEquals(game.Players.USER, game.getWinner);
+        assertEquals(Game.Players.USER, game.getWinner());
     }
 
     public void testCountAcePlayer() {

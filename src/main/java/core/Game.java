@@ -15,6 +15,7 @@ public class Game {
 
     private ArrayList<Card> playerHand = new ArrayList<Card>();
     private ArrayList<Card> dealerHand = new ArrayList<Card>();
+    private Players winner;
 
     public static void main(String[] arg) {
         Game game = new Game();
@@ -166,11 +167,16 @@ public class Game {
         this.dealerTotal = newTotal;
     }
 
+    public Players getWinner() {
+        return this.winner;
+    }
+
     private void gameWin(Players player) {
         String output = (player == Players.USER) ? "Player wins!" : "Dealer wins!";
         System.out.println(output);
         System.out.println("Player Total: " + this.playerTotal);
         System.out.println("Dealer Total: " + this.dealerTotal);
+        this.winner = player;
     }
 
     private void playerBust() {
