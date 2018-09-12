@@ -13,12 +13,16 @@ public class GameTest extends TestCase {
 
     public void testPlayerHasTwoCardsAtStart() {
         Game game = new Game();
+        game.gameDeck = new Deck();
+        game.dealCards();
 
         assertEquals(2, game.getPlayerHand().size());
     }
 
     public void testDealerHasTwoCardsAtStart() {
         Game game = new Game();
+        game.gameDeck = new Deck();
+        game.dealCards();
 
         assertEquals(2, game.getDealerHand().size());
     }
@@ -52,8 +56,8 @@ public class GameTest extends TestCase {
 
     public void testCheckWinnerWhenDealerGreaterThanPlayer() {
         Game game = new Game();
-        game.setPlayerTotal(19);
-        game.setDealerTotal(10);
+        game.setPlayerTotal(18);
+        game.setDealerTotal(19);
         game.checkWin();
 
         assertEquals(Game.Players.DEALER, game.getWinner());
