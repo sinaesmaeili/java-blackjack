@@ -1,0 +1,7 @@
+SQ
+SK
+D10
+D5
+H
+DK
+S
