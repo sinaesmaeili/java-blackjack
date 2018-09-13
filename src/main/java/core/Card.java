@@ -10,6 +10,16 @@ public class Card {
         this.rank = rank;
     }
 
+    public Card(char suit, char rank) {
+        this.suit = String.valueOf(suit);
+        this.rank = String.valueOf(rank);
+    }
+
+    public Card(char suit, String rank) {
+        this.suit = String.valueOf(suit);
+        this.rank = rank;
+    }
+
     public String printCard() {
         return this.suit + this.rank;
     }

@@ -30,7 +30,7 @@ public class Game {
         if (input.equals("c")) {
             playConsole();
         } else if (input.equals("f")) {
-            playFileInput();
+            playFromFile();
         } else {
             System.out.println("Incorrect input selected");
         }
@@ -45,6 +45,20 @@ public class Game {
         this.countAceDealer();
 
         this.playerLoop();
+    }
+
+    public void playFromFile() {
+        FileInput playGameFromFile = new FileInput("src/assets/" + this.askForInputFile());
+        playGameFromFile.readFile();
+        playGameFromFile.dealCards();
+        playGameFromFile.mainLoop();
+    }
+
+    public String askForInputFile() {
+        System.out.println("Enter name of any file in the assets folder. Example: input.txt");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        return input;
     }
 
     public void dealCards() {
@@ -63,6 +77,8 @@ public class Game {
     public void playerLoop() {
         this.countAcePlayer();
         this.countAceDealer();
+
+        // Checking for starting blackjack
         if (dealerTotal == 21) {
             this.gameWin(Players.DEALER);
         } else if (playerTotal == 21) {
@@ -139,10 +155,6 @@ public class Game {
         }
     }
 
-    public void playFileInput() {
-
-    }
-
     public ArrayList<Card> getPlayerHand() {
         return this.playerHand;
     }
@@ -176,18 +188,27 @@ public class Game {
         System.out.println(output);
         System.out.println("Player Total: " + this.playerTotal);
         System.out.println("Dealer Total: " + this.dealerTotal);
+        this.printDealerCards();
         this.winner = player;
     }
 
     private void playerBust() {
         System.out.println("Player busts with " + this.playerTotal);
         System.out.println("Dealer wins with "  + this.dealerTotal);
+        this.printDealerCards();
     }
 
     private void dealerBust() {
         System.out.println("Dealer busts with " + this.dealerTotal);
         System.out.println("Player wins wtih " + this.playerTotal);
+        this.printDealerCards();
     }
 
-
+    private void printDealerCards() {
+        System.out.print("Dealers Cards: ");
+        for (Card card: this.dealerHand) {
+            System.out.print(card.printCard() + " ");
+        }
+        System.out.print("\n");
+    }
 }

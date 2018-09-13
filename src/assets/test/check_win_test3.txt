@@ -1,4 +1,1 @@
-SK
-SA
-D10
-D5
+SK SA D10 D5

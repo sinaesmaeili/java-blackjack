@@ -1,7 +1,1 @@
-SA
-CA
-DA
-H5
-S
-HA
-D2
+SA CA DA H5 S HA D2

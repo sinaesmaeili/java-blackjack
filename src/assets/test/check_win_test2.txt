@@ -1,4 +1,1 @@
-S10
-S5
-DK
-DA
+S10 S5 DK DA

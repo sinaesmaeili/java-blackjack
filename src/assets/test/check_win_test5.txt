@@ -1,6 +1,1 @@
-S10
-S5
-DQ
-DK
-S
-CK
+S10 S5 DQ DK S CK

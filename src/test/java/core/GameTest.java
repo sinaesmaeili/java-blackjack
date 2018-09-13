@@ -96,8 +96,7 @@ public class GameTest extends TestCase {
 
     public void testConsoleGameLoop() {
         Game game = new Game();
-        game.playerLoop();
-        game.dealerLoop();
+        game.playConsole();
     }
 
 }
