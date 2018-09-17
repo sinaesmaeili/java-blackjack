@@ -94,6 +94,17 @@ public class GameTest extends TestCase {
         assertEquals(12, game.dealerTotal);
     }
 
+    public void testDealerSoft17() {
+        Game game = new Game();
+        Card card = new Card("S", "A");
+        Card card2 = new Card("C", "6");
+
+        game.addToDealerHand(card);
+        game.addToDealerHand(card2);
+        game.setDealerTotal(17);
+        assertTrue(game.dealerHasSoft17());
+    }
+
     public void testConsoleGameLoop() {
         Game game = new Game();
         game.playConsole();

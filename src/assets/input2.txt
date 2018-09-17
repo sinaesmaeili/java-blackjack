@@ -1,6 +1,1 @@
-SK
-H5
-SQ
-C5
-S
-DJ
+SK H5 SQ C5 S DJ
