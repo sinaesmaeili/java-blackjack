@@ -112,7 +112,7 @@ public class Game {
     }
 
     public void dealerLoop() {
-        while (dealerTotal < 17) {
+        while (dealerTotal <= 16 || this.dealerHasSoft17()) {
             this.dealerHand.add(this.gameDeck.takeCard());
             Card currentCard = this.dealerHand.get(dealerHand.size()-1);
             this.dealerTotal += currentCard.getCardValue();
@@ -153,6 +153,15 @@ public class Game {
         } else {
             gameWin(Players.USER);
         }
+    }
+
+    public boolean dealerHasSoft17() {
+        for (Card card: this.dealerHand) {
+            if (card.getRank().equals("A") && this.dealerTotal == 17) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Card> getPlayerHand() {

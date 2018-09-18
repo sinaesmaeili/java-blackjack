@@ -17,14 +17,6 @@ public class FileInput {
     private String fileName;
     private boolean dealerWins;
 
-    public static void main(String[] arg) {
-        FileInput game = new FileInput("src/assets/input.txt");
-        game.readFile();
-        game.dealCards();
-        game.mainLoop();
-        game.checkWin();
-    }
-
     public FileInput(String file) {
         this.fileName = file;
     }
