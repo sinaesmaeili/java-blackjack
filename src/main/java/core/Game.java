@@ -22,6 +22,7 @@ public class Game {
         game.askInputType();
     }
 
+    // Asks user for console or file input
     public void askInputType() {
         System.out.println("Start the game with console (c) or file (f) input?");
         Scanner sc = new Scanner(System.in);
@@ -61,6 +62,7 @@ public class Game {
         return input;
     }
 
+    // Deal cards to player and dealer hand and calculates current total of each hand
     public void dealCards() {
         for (int i = 0; i < 2; i++) {
             this.playerHand.add(this.gameDeck.takeCard());
@@ -75,6 +77,7 @@ public class Game {
     }
 
     public void playerLoop() {
+        // First checks for double ace of dealer or player
         this.countAcePlayer();
         this.countAceDealer();
 
@@ -112,6 +115,7 @@ public class Game {
     }
 
     public void dealerLoop() {
+        // Check for less than 16 or soft 17 from dealer
         while (dealerTotal <= 16 || this.dealerHasSoft17()) {
             this.dealerHand.add(this.gameDeck.takeCard());
             Card currentCard = this.dealerHand.get(dealerHand.size()-1);

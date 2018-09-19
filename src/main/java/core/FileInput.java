@@ -31,6 +31,7 @@ public class FileInput {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while ((line = bufferedReader.readLine()) != null) {
+                // Using regexp \s to retrieve each command after whitespace
                 this.commands = new ArrayList<String>(Arrays.asList(line.split("\\s+")));
             }
 
@@ -45,6 +46,7 @@ public class FileInput {
     public void dealCards() {
         for (int i = 0; i < 4; i++) {
             Card card;
+            // If statement for checking if card is value 10
             if (this.commands.get(i).charAt(1) == '1' && this.commands.get(i).charAt(2) == '0') {
                 String cardRank = "10";
                 card = new Card(this.commands.get(i).charAt(0), cardRank);
